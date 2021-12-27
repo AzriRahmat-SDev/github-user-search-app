@@ -10,26 +10,110 @@
 			sizes="32x32"
 			href="./assets/favicon-32x32.png"
 		/>
-		<link rel="stylesheet" type="text/css" href="./styles.css" />
-		<title>Frontend Mentor | GitHub user search app</title>
+		<link rel="stylesheet" href="/dist/styles.css" />
+		<link rel="stylesheet" href="/js/script.js" />
+		<title>GitHub User Search App</title>
 	</head>
 	<body>
-		<div>
-			<section class="header">
-				<header>devFinder</header>
-				<button id="handleModeChange">Mode</button>
-			</section>
-		</div>
-		<div>
-			<section class="search-bar-container">
-				<div class="search-bar">
-					<img class="search" src="./assets/icon-search.svg" />
-					<input type="text" placeholder="Search GitHub User..." />
+		<header>
+			<section>
+				<div class="header">
+					<header>devFinder</header>
+					<button id="handleModeChange">Mode</button>
 				</div>
-				<button id="handleUserSearch">Search</button>
 			</section>
+		</header>
+		<div>
+			<form id="myForm">
+				<section class="search-bar-container">
+					<div class="search-bar">
+						<img class="search" src="./assets/icon-search.svg" />
+						<input
+							type="text"
+							id="getUser"
+							required
+							placeholder="Search GitHub User..."
+						/>
+					</div>
+					<button id="handleUserSearch">Search</button>
+				</section>
+			</form>
 		</div>
-
-		Search Joined Repos Followers Following
+		<section>
+			<div class="username-container">
+				<div>
+					<img
+						class="github-thumb"
+						id="github-thumb"
+						src="./assets/icon-search.svg"
+						height="100px"
+						width="100px"
+						border="1px solid black"
+					/>
+				</div>
+				<!-- includes (name, @name, bio) -->
+				<div class="result-container">
+					<div class="result-name-result-handle">
+						<div
+							class="result-name"
+							id="result-name"
+							style="font-size: 18px"
+						></div>
+						<div
+							class="result-handle"
+							id="result-handle"
+							style="font-size: 18px"
+						></div>
+					</div>
+					<div
+						class="date-joined"
+						id="date-joined"
+						style="font-size: 18px; display: inline-block"
+					></div>
+				</div>
+			</div>
+			<div class="result-bio" id="result-bio" style="font-size: 18px"></div>
+		</section>
+		<section class="influence">
+			<div class="influence-container">
+				<div class="repo">
+					Repo <br />
+					<p id="repo"></p>
+				</div>
+				<div class="followers">
+					Followers <br />
+					<p id="followers"></p>
+				</div>
+				<div class="following">
+					Following <br />
+					<p id="following"></p>
+				</div>
+			</div>
+		</section>
+		<section class="soc-med">
+			<div class="soc-med-container">
+				<div class="location-links">
+					<div class="location" id="location-wrapper">
+						<img src="./assets/icon-location.svg" alt="" class="location" />
+						<p id="location"></p>
+					</div>
+					<div class="links" id="links-wrapper">
+						<img src="./assets/icon-website.svg" alt="" class="links" />
+						<p id="links"></p>
+					</div>
+				</div>
+				<div class="twitter-others" id="twitter-wrapper">
+					<div class="twitter">
+						<img src="./assets/icon-twitter.svg" alt="" class="twitter" />
+						<p id="twitter"></p>
+					</div>
+					<div class="others" id="others-wrapper">
+						<img src="./assets/icon-company.svg" alt="" class="others" />
+						<p id="others"></p>
+					</div>
+				</div>
+			</div>
+		</section>
 	</body>
+	<script src="./js/script.js"></script>
 </html>

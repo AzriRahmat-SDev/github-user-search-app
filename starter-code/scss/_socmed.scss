@@ -1,0 +1,46 @@
+.soc-med-container {
+	display: flex;
+	align-items: center;
+	width: 50vw;
+}
+.location-links {
+	display: block;
+	width: 50%;
+}
+
+.twitter-others {
+	display: block;
+	width: 50%;
+}
+
+.location {
+	display: flex;
+}
+
+.location > p {
+	margin: 0px 16px;
+}
+
+.links {
+	display: flex;
+}
+
+.links > p {
+	margin: 0px 16px;
+}
+
+.twitter {
+	display: flex;
+}
+
+.twitter > p {
+	margin: 0px 16px;
+}
+
+.others {
+	display: flex;
+}
+
+.others > p {
+	margin: 0px 16px;
+}
