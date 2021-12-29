@@ -63,16 +63,17 @@ form.addEventListener('submit', function (e) {
 
 			document.getElementById(
 				'github-thumb'
-			).innerHTML = `<img src="${!data.avatar_url}"/>`;
+			).innerHTML = `<img src="${data.avatar_url}"/>`;
 		});
 });
 
 fetch('https://api.github.com/users/octocat')
 	.then((response) => response.json())
 	.then((data) => {
+		console.log(data.avatar_url, 'alfnaf');
 		document.getElementById(
 			'github-thumb'
-		).innerHTML = `<img src="${!data.avatar_url}"/>`;
+		).innerHTML = `<img src="${data.avatar_url}"/>`;
 
 		//Name
 		document.getElementById('result-name').innerHTML = `<p>${data.name}</p>`;

@@ -1,18 +1,3 @@
-.soc-med-container {
-	display: flex;
-	align-items: center;
-	width: 50vw;
-}
-.location-links {
-	display: block;
-	width: 50%;
-}
-
-.twitter-others {
-	display: block;
-	width: 50%;
-}
-
 .location {
 	display: flex;
 }
@@ -43,4 +28,18 @@
 
 .others > p {
 	margin: 0px 16px;
+}
+
+.soc-med-container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: left;
+	width: 50vw;
+
+	@media (min-width: 43.75em) {
+		display: flex;
+		flex-direction: row;
+		width: 50vw;
+	}
 }

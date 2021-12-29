@@ -32,14 +32,11 @@ body {
 	height: auto;
 }
 
-section > .header {
+header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	flex-direction: row;
 	width: 50vw;
-	margin: 1px 2px;
-	border: 1px solid black;
 }
 
 .search-bar-container {
@@ -48,14 +45,11 @@ section > .header {
 	align-items: center;
 	justify-content: space-between;
 	width: 50vw;
-	margin: 1px 2px;
-	border: 1px solid black;
 }
 
 .search-bar {
 	display: flex;
 	justify-content: center;
-	border: 1px solid black;
 }
 
 #result {
@@ -66,31 +60,15 @@ section > .header {
 	display: flex;
 	align-items: left;
 	width: 50vw;
-	margin: 1px 2px;
-	border: 1px solid black;
+	height: auto;
 }
 
-.result-container {
-	display: flex;
-	flex-direction: row;
-	width: auto;
-	margin: 1px 2px;
-	border: 1px solid black;
-}
-
-.result-name-result-handle {
-	display: flex;
-	flex-direction: column;
-	width: auto;
-	margin: 1px 2px;
-	border: 1px solid black;
+.github-user-details {
 }
 
 .date-joined {
 	display: flex;
 	width: auto;
-	margin: 1px 2px;
-	border: 1px solid black;
 }
 
 .result-container {
@@ -111,9 +89,6 @@ section > .header {
 .image-name-container {
 	display: flex;
 	width: 100%;
-	margin: 1px 2px;
-	border: 1px solid black;
-
 	@media (min-width: 43.75em) {
 		display: none;
 	}
