@@ -1,6 +1,14 @@
 .profile-container {
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
-	width: 50vw;
+	align-items: center;
+	width: 100%;
+	margin: 1em 0em;
+
+	@media (min-width: 43.75em) {
+		display: block;
+		float: left;
+		height: 40%;
+		width: 100%;
+	}
 }

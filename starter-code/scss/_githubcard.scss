@@ -17,10 +17,25 @@
 }
 
 //tablet
-@media (min-width: 768px) {
+@media (min-width: 43.75em) {
 	.github-thumb {
 		//change size here
 		width: 117px;
 		height: 117px;
+	}
+}
+
+.github-card {
+	border-radius: 18px;
+	display: block;
+	background-color: #fff;
+	padding: 1em 1em;
+	margin-top: 1em;
+	width: 52vw;
+	height: 67.5vh;
+
+	@media (min-width: 43.75em) {
+		height: 100%;
+		width: 100%;
 	}
 }

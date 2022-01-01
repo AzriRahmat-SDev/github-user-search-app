@@ -1,29 +1,13 @@
-.location {
-	display: flex;
-}
-
 .location > p {
 	margin: 0px 16px;
-}
-
-.links {
-	display: flex;
 }
 
 .links > p {
 	margin: 0px 16px;
 }
 
-.twitter {
-	display: flex;
-}
-
 .twitter > p {
 	margin: 0px 16px;
-}
-
-.others {
-	display: flex;
 }
 
 .others > p {
@@ -35,11 +19,21 @@
 	flex-direction: column;
 	flex-wrap: wrap;
 	align-items: left;
-	width: 50vw;
+	width: 100%;
 
 	@media (min-width: 43.75em) {
+		//x >= 43.75em
 		display: flex;
 		flex-direction: row;
 		width: 50vw;
 	}
+}
+
+.soc-med-container > p {
+	margin: 0px 16px;
+}
+
+.soc-med-container > div {
+	display: flex;
+	flex: 50%;
 }

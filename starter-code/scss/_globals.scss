@@ -27,7 +27,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #fefefe;
+	background-color: #f6f8ff;
 	width: 60vw;
 	height: auto;
 }
@@ -63,9 +63,6 @@ header {
 	height: auto;
 }
 
-.github-user-details {
-}
-
 .date-joined {
 	display: flex;
 	width: auto;
@@ -96,30 +93,31 @@ header {
 
 h1 {
 	font-family: 'Space Mono', monospace;
-	font-size: 26px;
-	line-height: 38px;
+	font-size: 16px;
+	line-height: 6px;
 	font-weight: 700;
 }
 
 h2 {
 	font-family: 'Space Mono', monospace;
-	font-size: 22px;
-	line-height: 14px;
+	font-size: 16px;
+	line-height: 8px;
 	font-weight: 700;
 }
 
 h3 {
 	font-family: 'Space Mono', monospace;
-	font-size: 16px;
-	line-height: 24px;
+	font-size: 13px;
+	line-height: 8px;
 	font-weight: 400;
 	color: #0079ff;
 }
 
 h4 {
 	font-family: 'Space Mono', monospace;
-	font-size: 13px;
-	line-height: 14px;
+	font-size: 11px;
+	line-height: 8px;
 	font-weight: 400;
+	margin: 0px;
 	color: #697c9a;
 }
