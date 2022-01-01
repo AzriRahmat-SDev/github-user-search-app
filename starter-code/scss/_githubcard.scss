@@ -1,4 +1,5 @@
 .github-thumb {
+	display: block;
 	float: left;
 	width: 70px;
 	height: 70px;
@@ -9,32 +10,26 @@
 	}
 }
 
-.result-name-result-handle {
-	height: 70px;
-	#result-name {
-		margin: 0;
-	}
-}
-
 //tablet
 @media (min-width: 43.75em) {
 	.github-thumb {
 		//change size here
-		width: 117px;
-		height: 117px;
+		width: 160px;
+		height: 120px;
 	}
 }
 
 .github-card {
 	border-radius: 18px;
-	display: block;
+	display: flex;
 	background-color: #fff;
 	padding: 1em 1em;
 	margin-top: 1em;
-	width: 52vw;
-	height: 67.5vh;
+	width: 80%;
+	height: 80%;
 
 	@media (min-width: 43.75em) {
+		//windowSize>=43.75em
 		height: 100%;
 		width: 100%;
 	}

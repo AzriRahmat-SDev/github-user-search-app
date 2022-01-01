@@ -1,5 +1,6 @@
 .profile-container {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
@@ -8,7 +9,15 @@
 	@media (min-width: 43.75em) {
 		display: block;
 		float: left;
-		height: 40%;
+		height: 100%;
 		width: 100%;
+		padding: 0 1em;
 	}
+}
+
+.github-user-details {
+	display: inline-flex;
+	align-items: left;
+	width: 100%;
+	height: auto;
 }

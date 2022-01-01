@@ -38,9 +38,9 @@ form.addEventListener('submit', function (e) {
 				document.getElementById('location').innerHTML = `<p>Not Available</p>`;
 			}
 			//Links
-			document.getElementById('links').innerHTML = `<p>${data.blog}</p>`;
-			if (data.blog === null) {
-				document.getElementById('links').innerHTML = `<p>Not Available</p>`;
+			document.getElementById('blog').textContent = data.blog;
+			if (data.blog === null || data.blog == '') {
+				document.getElementById('blog').innerHTML = `<p>Not Available</p>`;
 			}
 			//twitter
 			document.getElementById(
@@ -71,7 +71,7 @@ fetch('https://api.github.com/users/octocat')
 		).innerHTML = `<img src="${data.avatar_url}"/>`;
 
 		//Name
-		document.getElementById('result-name').innerHTML = `<p>${data.name}</p>`;
+		document.getElementById('result-name').textContent = data.name;
 		var date = new Date(data.created_at);
 
 		//Date joined
@@ -81,9 +81,7 @@ fetch('https://api.github.com/users/octocat')
 		).innerHTML = `<h4>${modifiedDate}</h4>`;
 
 		//Login
-		document.getElementById(
-			'result-handle'
-		).innerHTML = `<p>@${data.login}</p>`;
+		document.getElementById('result-handle').textContent = '@' + data.login;
 
 		//Bio
 		document.getElementById('result-bio').innerHTML = `<p>${data.bio}</p>`;
@@ -103,19 +101,17 @@ fetch('https://api.github.com/users/octocat')
 		document.getElementById('following').innerHTML = `<p>${data.following}</p>`;
 
 		//Location
-		document.getElementById('location').innerHTML = `<p>${data.location}</p>`;
+		document.getElementById('location').textContent = data.location;
 
 		//Links
-		document.getElementById('links').innerHTML = `<p>${data.blog}</p>`;
+		document.getElementById('blog').textContent = data.blog;
 
 		//twitter
-		document.getElementById(
-			'twitter'
-		).innerHTML = `<p>${data.twitter_username}</p>`;
+		document.getElementById('twitter').textContent = data.twitter_username;
 		if (data.twitter_username === null) {
-			document.getElementById('twitter').innerHTML = `<p>Not Available</p>`;
+			document.getElementById('twitter').textContent = `Not Available`;
 		}
 
 		//others
-		document.getElementById('others').innerHTML = `<p>${data.company}</p>`;
+		document.getElementById('others').textContent = data.company;
 	});
