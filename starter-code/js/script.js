@@ -1,8 +1,12 @@
 console.log('hello world');
 
-var form = document.getElementById('myForm');
+var userInput = document.getElementById('handleUserSearch');
+var userInputEnter = document.getElementById('getUser');
 
-form.addEventListener('submit', function (e) {
+userInput.addEventListener('click', getApiCall);
+userInput.addEventListener('submit', getApiCall);
+
+function getApiCall(e) {
 	e.preventDefault();
 	var search = document.getElementById('getUser').value;
 	var modifiedSearch = search.split(' ').join('');
@@ -33,34 +37,32 @@ form.addEventListener('submit', function (e) {
 			document.getElementById('following').textContext = data.following;
 
 			//Location
-			document.getElementById('location').innerHTML = `<p>${data.location}</p>`;
+			document.getElementById('location').textContext = data.location;
 			if (data.location === null) {
-				document.getElementById('location').innerHTML = `<p>Not Available</p>`;
+				document.getElementById('location').textContext = `Not Available`;
 			}
 			//Links
 			document.getElementById('blog').textContent = data.blog;
 			if (data.blog === null || data.blog == '') {
-				document.getElementById('blog').innerHTML = `<p>Not Available</p>`;
+				document.getElementById('blog').textContext = `Not Available`;
 			}
 			//twitter
-			document.getElementById(
-				'twitter'
-			).innerHTML = `<p>${data.twitter_username}</p>`;
+			document.getElementById('twitter').textContext = data.twitter_username;
 			if (data.twitter_username === null) {
-				document.getElementById('twitter').innerHTML = `<p>Not Available</p>`;
+				document.getElementById('twitter').textContext = `Not Available`;
 			}
 
 			//others
-			document.getElementById('others').innerHTML = `<p>${data.company}</p>`;
+			document.getElementById('others').textContext = data.company;
 			if (data.company === null) {
-				document.getElementById('others').innerHTML = `<p>Not Available</p>`;
+				document.getElementById('others').textContext = `Not Available`;
 			}
 
 			document.getElementById(
 				'github-thumb'
 			).innerHTML = `<img src="${data.avatar_url}"/>`;
 		});
-});
+}
 
 fetch('https://api.github.com/users/octocat')
 	.then((response) => response.json())

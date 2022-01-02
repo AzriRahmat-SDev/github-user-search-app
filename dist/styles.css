@@ -78,7 +78,20 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  height: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 16px;
+}
+
+@media (min-width: 43.75em) {
+  .search-bar-container {
+    width: 100%;
+  }
 }
 
 .search-bar {
@@ -198,6 +211,7 @@ h4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: auto;
   -webkit-box-flex: 1;
       -ms-flex: auto;
           flex: auto;
@@ -229,9 +243,6 @@ h4 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: left;
-      -ms-flex-align: left;
-          align-items: left;
   height: 50%;
 }
 
@@ -256,8 +267,15 @@ h4 {
   height: 100%;
 }
 
+.github-thumb {
+  display: none;
+}
+
 @media (min-width: 43.75em) {
   .github-thumb {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     width: 160px;
     height: 120px;
   }
