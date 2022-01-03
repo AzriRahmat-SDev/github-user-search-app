@@ -1,0 +1,11 @@
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	margin-bottom: 20px;
+
+	@media (min-width: 43.75em) {
+		width: 100%;
+	}
+}

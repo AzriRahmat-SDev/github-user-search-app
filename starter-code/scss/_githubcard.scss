@@ -10,6 +10,18 @@
 	}
 }
 
+.github-thumb-inner {
+	display: block;
+	float: left;
+	width: 70px;
+	height: 70px;
+	img {
+		clip-path: circle(50% at center);
+		width: 65%;
+		height: 90%;
+	}
+}
+
 //tablet
 .github-thumb {
 	display: none;
@@ -21,6 +33,16 @@
 	}
 }
 
+.github-thumb-inner {
+	display: none;
+
+	@media (max-width: 43.75em) {
+		display: block;
+		width: 33%;
+		height: 100%;
+	}
+}
+
 .github-card {
 	border-radius: 18px;
 	display: flex;
@@ -29,10 +51,23 @@
 	margin-top: 1em;
 	width: 80%;
 	height: 80%;
+	box-shadow: 5px 10px 18px hsl(229, 6%, 66%);
 
 	@media (min-width: 43.75em) {
 		//windowSize>=43.75em
 		height: 100%;
 		width: 100%;
 	}
+}
+
+.inner {
+	margin-bottom: 5px;
+	display: flex;
+}
+
+.profile {
+	display: flex;
+	flex-direction: column;
+	width: auto;
+	margin-left: 10px;
 }

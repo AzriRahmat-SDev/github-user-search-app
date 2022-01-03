@@ -1,10 +1,10 @@
 console.log('hello world');
 
 var userInput = document.getElementById('handleUserSearch');
-var userInputEnter = document.getElementById('getUser');
+var userInputEnter = document.getElementById('my-form');
 
 userInput.addEventListener('click', getApiCall);
-userInput.addEventListener('submit', getApiCall);
+userInputEnter.addEventListener('submit', getApiCall);
 
 function getApiCall(e) {
 	e.preventDefault();
@@ -60,18 +60,24 @@ function getApiCall(e) {
 
 			document.getElementById(
 				'github-thumb'
-			).innerHTML = `<img src="${data.avatar_url}"/>`;
+			).innerHTML = `<img style=width: 90px; height: 90px; src="${data.avatar_url}"/>`;
+
+			document.getElementById(
+				'github-thumb-inner'
+			).innerHTML = `<img style="width: 90px; height: 90px; src="${data.avatar_url}"/>`;
 		});
 }
 
 fetch('https://api.github.com/users/octocat')
 	.then((response) => response.json())
 	.then((data) => {
-		console.log(data.avatar_url, 'alfnaf');
 		document.getElementById(
 			'github-thumb'
 		).innerHTML = `<img src="${data.avatar_url}"/>`;
 
+		document.getElementById(
+			'github-thumb-inner'
+		).innerHTML = `<img style="width: 90px; height: 90px;" src="${data.avatar_url}"/>`;
 		//Name
 		document.getElementById('result-name').textContent = data.name;
 		var date = new Date(data.created_at);
@@ -94,13 +100,13 @@ fetch('https://api.github.com/users/octocat')
 		}
 
 		//Repo
-		document.getElementById('repo').innerHTML = `<p>${data.public_repos}</p>`;
+		document.getElementById('repo').textContent = data.public_repos;
 
 		//Followers
-		document.getElementById('followers').innerHTML = `<p>${data.followers}</p>`;
+		document.getElementById('followers').textContent = data.followers;
 
 		//Following
-		document.getElementById('following').innerHTML = `<p>${data.following}</p>`;
+		document.getElementById('following').textContent = data.following;
 
 		//Location
 		document.getElementById('location').textContent = data.location;

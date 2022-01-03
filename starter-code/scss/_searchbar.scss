@@ -1,0 +1,58 @@
+.search-bar {
+	display: flex;
+	justify-content: center;
+}
+
+.handleUserSearch {
+	display: block;
+	border: none;
+	outline: none;
+	height: 100%;
+	font-size: 12px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	background: #0079ff;
+	color: #fff;
+	font-family: 'Space Mono', monospace;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.handleUserSearch:hover,
+.handleUserSearch:focus {
+	background-color: #4699f8;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.getUser {
+	display: block;
+	border: none;
+	outline: none;
+	height: 100%;
+	width: 150%;
+	font-size: 11px;
+	font-family: 'Space Mono', monospace;
+	font-weight: 400;
+	margin-left: 10px;
+}
+
+.search-icon {
+	margin-left: 10px;
+}
+
+.search-bar-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	height: 100%;
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 16px;
+	box-shadow: 5px 10px 18px hsl(229, 6%, 66%);
+
+	@media (min-width: 43.75em) {
+		width: 100%;
+	}
+}
