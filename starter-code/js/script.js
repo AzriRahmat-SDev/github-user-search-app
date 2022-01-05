@@ -6,6 +6,25 @@ var userInputEnter = document.getElementById('my-form');
 userInput.addEventListener('click', getApiCall);
 userInputEnter.addEventListener('submit', getApiCall);
 
+let toggle = (button) => {
+	var moonImg = document.getElementById('dark-mode-image');
+	var moonActive = moonImg.getAttribute('hidden');
+	var sunImg = document.getElementById('light-mode-image');
+	var buttonText = document.getElementById('handleModeChange');
+
+	if (moonActive) {
+		moonImg.removeAttribute('hidden');
+		sunImg.setAttribute('hidden', 'hidden');
+		buttonText.innerHTML = 'DARK';
+		buttonText.style.color = '#2b3442';
+	} else {
+		sunImg.removeAttribute('hidden');
+		moonImg.setAttribute('hidden', 'hidden');
+		buttonText.innerHTML = 'LIGHT';
+		buttonText.style.color = '#FFFFFF';
+	}
+};
+
 function getApiCall(e) {
 	e.preventDefault();
 	var search = document.getElementById('getUser').value;

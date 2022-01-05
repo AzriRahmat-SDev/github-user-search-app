@@ -422,4 +422,67 @@ header {
     width: 100%;
   }
 }
+
+.light-dark-mode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.light-dark-mode-btn > button {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0px 5px;
+  color: #2b3442;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.dark-mode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url(starter-code/assets/icon-moon.svg), none;
+}
+
+.light-mode {
+  display: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url(./assests/icon-sun.svg) no-repeat;
+}
+
+.light-mode > button {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0px 5px;
+  color: #fefefe;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
 /*# sourceMappingURL=styles.css.map */

@@ -23,7 +23,15 @@
 		<div class="content-wrapper">
 			<header>
 				<h2>devFinder</h2>
-				<button id="handleModeChange">Mode</button>
+				<div class="light-dark-mode" id="light-dark-mode">
+					<p class="light-dark-mode-btn">
+						<button onClick="toggle(this);" class="light-dark-mode" id="handleModeChange">DARK</button>
+						<div class="dark-mode" id="light-dark-mode">
+							<img src="./assets/icon-moon.svg" alt="" id="dark-mode-image">
+							<img src="./assets/icon-sun.svg" alt="" id="light-mode-image" hidden='hidden'>
+						</div>
+					</p>
+				</div>
 			</header>
 			<div class="search-bar-container">
 				<div class="search-bar">
