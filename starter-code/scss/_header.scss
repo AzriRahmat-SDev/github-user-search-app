@@ -32,13 +32,11 @@ header {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	background-image: url(starter-code/assets/icon-moon.svg), none;
 }
 .light-mode {
 	display: none;
 	flex-direction: row;
 	align-items: center;
-	background-image: url(./assests/icon-sun.svg) no-repeat;
 }
 
 .light-mode > button {
@@ -51,4 +49,8 @@ header {
 	outline: none;
 	background: none;
 	cursor: pointer;
+}
+
+.getUserLight::-webkit-input-placeholder {
+	color: #ffffff;
 }

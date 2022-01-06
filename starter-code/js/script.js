@@ -12,16 +12,73 @@ let toggle = (button) => {
 	var sunImg = document.getElementById('light-mode-image');
 	var buttonText = document.getElementById('handleModeChange');
 
+	//changes to the text elements
+	var lightH1 = document.getElementsByTagName('h1');
+	var lightH2 = document.getElementsByTagName('h2');
+	var lightH4 = document.getElementsByTagName('h4');
+	var lightP = document.getElementsByTagName('p');
+	var lightInput = document.getElementById('getUser');
+	var backgroundChange = document.getElementsByTagName('body');
+	var headerChange = document.getElementsByTagName('header');
+	var contentWrapperChange = document.getElementById('content-wrapper');
+	var searchBarChange = document.getElementById('search-bar-container');
+	var searchBoxChange = document.getElementById('getUser');
+	var githubCardChange = document.getElementById('github-card');
+	var influencerContainerChange = document.getElementById(
+		'influence-container'
+	);
+
 	if (moonActive) {
 		moonImg.removeAttribute('hidden');
 		sunImg.setAttribute('hidden', 'hidden');
 		buttonText.innerHTML = 'DARK';
 		buttonText.style.color = '#2b3442';
+		lightH1[0].style.color = '#2b3442';
+		lightInput.classList.remove('getUserLight');
+		for (var i = 0; i < lightH2.length; i++) {
+			lightH2[i].style.color = '#2b3442';
+		}
+		for (var i = 0; i < lightP.length; i++) {
+			lightP[i].style.color = '#2b3442';
+		}
+		for (var i = 0; i < lightH4.length; i++) {
+			lightH4[i].style.color = '#2b3442';
+		}
+		backgroundChange[0].style.background = '#f6f8ff';
+		headerChange[0].style.background = '#f6f8ff';
+		contentWrapperChange.style.background = '#f6f8ff';
+		searchBarChange.style.background = '#ffffff';
+		searchBoxChange.style.background = '#ffffff';
+		githubCardChange.style.background = '#ffffff';
+		githubCardChange.style.boxShadow = '5px 10px 18px #a3a5ae';
+		searchBarChange.style.boxShadow = '5px 10px 18px #a3a5ae';
+		influencerContainerChange.style.background = '#f6f8ff';
 	} else {
+		//put light stuff here
 		sunImg.removeAttribute('hidden');
 		moonImg.setAttribute('hidden', 'hidden');
 		buttonText.innerHTML = 'LIGHT';
 		buttonText.style.color = '#FFFFFF';
+		lightH1[0].style.color = '#FFFFFF';
+		lightInput.classList.add('getUserLight');
+		for (var i = 0; i < lightH2.length; i++) {
+			lightH2[i].style.color = '#FFFFFF';
+		}
+		for (var i = 0; i < lightP.length; i++) {
+			lightP[i].style.color = '#FFFFFF';
+		}
+		for (var i = 0; i < lightH4.length; i++) {
+			lightH4[i].style.color = '#FFFFFF';
+		}
+		backgroundChange[0].style.background = '#141d2f';
+		headerChange[0].style.background = '#141d2f';
+		contentWrapperChange.style.background = '#141d2f';
+		searchBarChange.style.background = '#1e2a47';
+		searchBoxChange.style.background = '#1e2a47';
+		githubCardChange.style.background = '#1e2a47';
+		githubCardChange.style.boxShadow = 'none';
+		searchBarChange.style.boxShadow = 'none';
+		influencerContainerChange.style.background = '#141d2f';
 	}
 };
 
@@ -32,25 +89,19 @@ function getApiCall(e) {
 	fetch('https://api.github.com/users/' + modifiedSearch)
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data);
-
 			document.getElementById('result-name').textContent = data.name;
-
-			document.getElementById('result-handle').textContext = `
-            @${data.login}`;
-
+			document.getElementById('result-handle').innerHTML = '@' + data.login;
 			document.getElementById('result-bio').innerHTML = `
             <p>${data.bio}</p>`;
 			if (data.bio === null) {
-				document.getElementById(
-					'result-bio'
-				).innerHTML = `<p>This profile has no bio  fetch successful</p>`;
+				document.getElementById('result-bio').textContent =
+					'This profile has no bio';
 			}
 			//Repo
-			document.getElementById('repo').textContext = data.public_repos;
+			document.getElementById('repo').textContext = `${data.public_repos}`;
 
 			//Followers
-			document.getElementById('followers').textContext = data.followers;
+			document.getElementById('followers').textContext = `${data.followers}`;
 
 			//Following
 			document.getElementById('following').textContext = data.following;
