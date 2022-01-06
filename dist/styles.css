@@ -484,6 +484,7 @@ header {
   cursor: pointer;
 }
 
+.getUserLight,
 .getUserLight::-webkit-input-placeholder {
   color: #ffffff;
 }

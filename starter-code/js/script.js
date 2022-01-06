@@ -85,6 +85,9 @@ let toggle = (button) => {
 function getApiCall(e) {
 	e.preventDefault();
 	var search = document.getElementById('getUser').value;
+	if (!search) {
+		return;
+	}
 	var modifiedSearch = search.split(' ').join('');
 	fetch('https://api.github.com/users/' + modifiedSearch)
 		.then((response) => response.json())
@@ -98,34 +101,34 @@ function getApiCall(e) {
 					'This profile has no bio';
 			}
 			//Repo
-			document.getElementById('repo').textContext = `${data.public_repos}`;
+			document.getElementById('repo').innerHTML = data.public_repos;
 
 			//Followers
-			document.getElementById('followers').textContext = `${data.followers}`;
+			document.getElementById('followers').innerHTML = data.followers;
 
 			//Following
-			document.getElementById('following').textContext = data.following;
+			document.getElementById('following').innerHTML = data.following;
 
 			//Location
-			document.getElementById('location').textContext = data.location;
+			document.getElementById('location').innerHTML = data.location;
 			if (data.location === null) {
-				document.getElementById('location').textContext = `Not Available`;
+				document.getElementById('location').innerHTML = `Not Available`;
 			}
 			//Links
-			document.getElementById('blog').textContent = data.blog;
+			document.getElementById('blog').innerHTML = data.blog;
 			if (data.blog === null || data.blog == '') {
-				document.getElementById('blog').textContext = `Not Available`;
+				document.getElementById('blog').innerHTML = `Not Available`;
 			}
 			//twitter
-			document.getElementById('twitter').textContext = data.twitter_username;
+			document.getElementById('twitter').innerHTML = data.twitter_username;
 			if (data.twitter_username === null) {
-				document.getElementById('twitter').textContext = `Not Available`;
+				document.getElementById('twitter').innerHTML = `Not Available`;
 			}
 
 			//others
-			document.getElementById('others').textContext = data.company;
+			document.getElementById('others').innerHTML = data.company;
 			if (data.company === null) {
-				document.getElementById('others').textContext = `Not Available`;
+				document.getElementById('others').innerHTML = `Not Available`;
 			}
 
 			document.getElementById(
@@ -134,7 +137,7 @@ function getApiCall(e) {
 
 			document.getElementById(
 				'github-thumb-inner'
-			).innerHTML = `<img style="width: 90px; height: 90px; src="${data.avatar_url}"/>`;
+			).innerHTML = `<img style=width: 90px; height: 90px; src="${data.avatar_url}"/>`;
 		});
 }
 
