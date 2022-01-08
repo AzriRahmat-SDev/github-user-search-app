@@ -17,6 +17,7 @@ let toggle = (button) => {
 	var lightH2 = document.getElementsByTagName('h2');
 	var lightH4 = document.getElementsByTagName('h4');
 	var lightP = document.getElementsByTagName('p');
+	var lightA = document.getElementsByTagName('a');
 	var lightInput = document.getElementById('getUser');
 	var backgroundChange = document.getElementsByTagName('body');
 	var headerChange = document.getElementsByTagName('header');
@@ -44,6 +45,9 @@ let toggle = (button) => {
 		for (var i = 0; i < lightH4.length; i++) {
 			lightH4[i].style.color = '#2b3442';
 		}
+		for (var i = 0; i < lightA.length; i++) {
+			lightA[i].style.color = '#2b3442';
+		}
 		backgroundChange[0].style.background = '#f6f8ff';
 		headerChange[0].style.background = '#f6f8ff';
 		contentWrapperChange.style.background = '#f6f8ff';
@@ -69,6 +73,9 @@ let toggle = (button) => {
 		}
 		for (var i = 0; i < lightH4.length; i++) {
 			lightH4[i].style.color = '#FFFFFF';
+		}
+		for (var i = 0; i < lightA.length; i++) {
+			lightA[i].style.color = '#FFFFFF';
 		}
 		backgroundChange[0].style.background = '#141d2f';
 		headerChange[0].style.background = '#141d2f';
@@ -115,7 +122,9 @@ function getApiCall(e) {
 				document.getElementById('location').innerHTML = `Not Available`;
 			}
 			//Links
-			document.getElementById('blog').innerHTML = data.blog;
+			document.getElementById(
+				'blog'
+			).innerHTML = `<a href="${data.blog}">${data.blog}</a>`;
 			if (data.blog === null || data.blog == '') {
 				document.getElementById('blog').innerHTML = `Not Available`;
 			}
@@ -133,11 +142,11 @@ function getApiCall(e) {
 
 			document.getElementById(
 				'github-thumb'
-			).innerHTML = `<img style=width: 90px; height: 90px; src="${data.avatar_url}"/>`;
+			).innerHTML = `<img style="width: 95%; height: 95%;" src="${data.avatar_url}"/>`;
 
 			document.getElementById(
 				'github-thumb-inner'
-			).innerHTML = `<img style=width: 90px; height: 90px; src="${data.avatar_url}"/>`;
+			).innerHTML = `<img style=width: 100px; height: 90px; src="${data.avatar_url}"/>`;
 		});
 }
 
@@ -185,7 +194,9 @@ fetch('https://api.github.com/users/octocat')
 		document.getElementById('location').textContent = data.location;
 
 		//Links
-		document.getElementById('blog').textContent = data.blog;
+		document.getElementById(
+			'blog'
+		).innerHTML = `<a href="${data.blog}">${data.blog}</a>`;
 
 		//twitter
 		document.getElementById('twitter').textContent = data.twitter_username;
