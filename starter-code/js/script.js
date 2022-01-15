@@ -12,6 +12,18 @@ let toggle = (button) => {
 	var sunImg = document.getElementById('light-mode-image');
 	var buttonText = document.getElementById('handleModeChange');
 
+	var locationCheck = document.getElementById('location-img-disabled');
+	var locationCheckActive = locationCheck.getAttribute('hidden');
+
+	var linkCheck = document.getElementById('link-img-disabled');
+	var linkCheckActive = linkCheck.getAttribute('hidden');
+
+	var twitterCheck = document.getElementById('twitter-img-disabled');
+	var twitterCheckActive = twitterCheck.getAttribute('hidden');
+
+	var othersCheck = document.getElementById('others-disabled');
+	var othersCheckActive = othersCheck.getAttribute('hidden');
+
 	//changes to the text elements
 	var lightH1 = document.getElementsByTagName('h1');
 	var lightH2 = document.getElementsByTagName('h2');
@@ -30,6 +42,7 @@ let toggle = (button) => {
 	);
 
 	if (moonActive) {
+		console.log('currently in light mode');
 		moonImg.removeAttribute('hidden');
 		sunImg.setAttribute('hidden', 'hidden');
 		buttonText.innerHTML = 'DARK';
@@ -39,14 +52,41 @@ let toggle = (button) => {
 		for (var i = 0; i < lightH2.length; i++) {
 			lightH2[i].style.color = '#2b3442';
 		}
-		for (var i = 0; i < lightP.length; i++) {
-			lightP[i].style.color = '#2b3442';
+
+		if (locationCheckActive) {
+			//location is valid
+			document.getElementById('location').style.color = '#697c9a';
+		} else {
+			//location is invalid
+			document.getElementById('location').style.color = '#acadb5';
 		}
+		if (twitterCheckActive) {
+			//twitter is valid
+			document.getElementById('twitter').style.color = '#697c9a';
+		} else {
+			//twitter is invalid
+			document.getElementById('twitter').style.color = '#acadb5';
+		}
+		if (linkCheckActive) {
+			//link is valid
+			document.getElementById('blog').style.color = '#697c9a';
+		} else {
+			//link is invalid
+			document.getElementById('blog').style.color = '#acadb5';
+		}
+		if (othersCheckActive) {
+			//others is valid
+			document.getElementById('others').style.color = '#697c9a';
+		} else {
+			//others is invalid
+			document.getElementById('others').style.color = '#acadb5';
+		}
+
 		for (var i = 0; i < lightH4.length; i++) {
 			lightH4[i].style.color = '#2b3442';
 		}
 		for (var i = 0; i < lightA.length; i++) {
-			lightA[i].style.color = '#2b3442';
+			lightA[i].style.color = '#697c9a';
 		}
 		backgroundChange[0].style.background = '#f6f8ff';
 		headerChange[0].style.background = '#f6f8ff';
@@ -58,7 +98,7 @@ let toggle = (button) => {
 		searchBarChange.style.boxShadow = '5px 10px 18px #a3a5ae';
 		influencerContainerChange.style.background = '#f6f8ff';
 	} else {
-		//put light stuff here
+		console.log('currently in dark mode');
 		sunImg.removeAttribute('hidden');
 		moonImg.setAttribute('hidden', 'hidden');
 		buttonText.innerHTML = 'LIGHT';
@@ -68,8 +108,34 @@ let toggle = (button) => {
 		for (var i = 0; i < lightH2.length; i++) {
 			lightH2[i].style.color = '#FFFFFF';
 		}
-		for (var i = 0; i < lightP.length; i++) {
-			lightP[i].style.color = '#FFFFFF';
+
+		if (locationCheckActive) {
+			//location is valid
+			document.getElementById('location').style.color = '#f6f8ff';
+		} else {
+			//location is invalid
+			document.getElementById('location').style.color = '#acadb5';
+		}
+		if (twitterCheckActive) {
+			//twitter is valid
+			document.getElementById('twitter').style.color = '#f6f8ff';
+		} else {
+			//twitter is invalid
+			document.getElementById('twitter').style.color = '#acadb5';
+		}
+		if (linkCheckActive) {
+			//link is valid
+			document.getElementById('blog').style.color = '#f6f8ff';
+		} else {
+			//link is invalid
+			document.getElementById('blog').style.color = '#acadb5';
+		}
+		if (othersCheckActive) {
+			//other is valid
+			document.getElementById('others').style.color = '#f6f8ff';
+		} else {
+			//other is invalid
+			document.getElementById('others').style.color = '#acadb5';
 		}
 		for (var i = 0; i < lightH4.length; i++) {
 			lightH4[i].style.color = '#FFFFFF';
@@ -92,6 +158,8 @@ let toggle = (button) => {
 function getApiCall(e) {
 	e.preventDefault();
 	var search = document.getElementById('getUser').value;
+	var moonImg = document.getElementById('dark-mode-image');
+	var moonActive = moonImg.getAttribute('hidden');
 	if (!search) {
 		return;
 	}
@@ -107,6 +175,17 @@ function getApiCall(e) {
 				document.getElementById('result-bio').textContent =
 					'This profile has no bio';
 			}
+			var locationImgDisable = document.getElementById('location-img-disabled');
+			var locationImg = document.getElementById('location-img');
+
+			var linkImgDisable = document.getElementById('link-img-disabled');
+			var linkImg = document.getElementById('link-img');
+
+			var twitterImgDisable = document.getElementById('twitter-img-disabled');
+			var twitterImg = document.getElementById('twitter-img');
+
+			var othersImgDisable = document.getElementById('others-disabled');
+			var othersImg = document.getElementById('others-img');
 			//Repo
 			document.getElementById('repo').innerHTML = data.public_repos;
 
@@ -120,24 +199,74 @@ function getApiCall(e) {
 			document.getElementById('location').innerHTML = data.location;
 			if (data.location === null) {
 				document.getElementById('location').innerHTML = `Not Available`;
+				document.getElementById('location').style.color = '#acadb5';
+				locationImgDisable.removeAttribute('hidden');
+				locationImg.setAttribute('hidden', 'hidden');
+			} else {
+				if (moonActive) {
+					document.getElementById('location').style.color = '#f6f8ff';
+				} else {
+					document.getElementById('location').style.color = '#697c9a';
+				}
+				locationImg.removeAttribute('hidden');
+				locationImgDisable.setAttribute('hidden', 'hidden');
 			}
 			//Links
-			document.getElementById(
-				'blog'
-			).innerHTML = `<a href="${data.blog}">${data.blog}</a>`;
+			if (moonActive) {
+				document.getElementById(
+					'blog'
+				).innerHTML = `<a href="${data.blog}"; style="color: #f6f8ff">${data.blog}</a>`;
+			} else {
+				document.getElementById(
+					'blog'
+				).innerHTML = `<a href="${data.blog}"; style="color: #697c9a">${data.blog}</a>`;
+			}
 			if (data.blog === null || data.blog == '') {
 				document.getElementById('blog').innerHTML = `Not Available`;
+				document.getElementById('blog').style.color = '#acadb5';
+				linkImgDisable.removeAttribute('hidden');
+				linkImg.setAttribute('hidden', 'hidden');
+			} else {
+				if (moonActive) {
+					document.getElementById('blog').style.color = '#f6f8ff';
+				} else {
+					document.getElementById('blog').style.color = '#697c9a';
+				}
+				linkImg.removeAttribute('hidden');
+				linkImgDisable.setAttribute('hidden', 'hidden');
 			}
 			//twitter
 			document.getElementById('twitter').innerHTML = data.twitter_username;
 			if (data.twitter_username === null) {
 				document.getElementById('twitter').innerHTML = `Not Available`;
+				document.getElementById('twitter').style.color = '#acadb5';
+				twitterImgDisable.removeAttribute('hidden');
+				twitterImg.setAttribute('hidden', 'hidden');
+			} else {
+				if (moonActive) {
+					document.getElementById('twitter').style.color = '#f6f8ff';
+				} else {
+					document.getElementById('twitter').style.color = '#697c9a';
+				}
+				twitterImg.removeAttribute('hidden');
+				twitterImgDisable.setAttribute('hidden', 'hidden');
 			}
 
 			//others
 			document.getElementById('others').innerHTML = data.company;
 			if (data.company === null) {
 				document.getElementById('others').innerHTML = `Not Available`;
+				document.getElementById('others').style.color = '#acadb5';
+				othersImgDisable.removeAttribute('hidden');
+				othersImg.setAttribute('hidden', 'hidden');
+			} else {
+				if (moonActive) {
+					document.getElementById('others').style.color = '#f6f8ff';
+				} else {
+					document.getElementById('others').style.color = '#697c9a';
+				}
+				othersImg.removeAttribute('hidden');
+				othersImgDisable.setAttribute('hidden', 'hidden');
 			}
 
 			document.getElementById(
