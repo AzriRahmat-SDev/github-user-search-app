@@ -236,7 +236,8 @@ function getApiCall(e) {
 				linkImgDisable.setAttribute('hidden', 'hidden');
 			}
 			//twitter
-			document.getElementById('twitter').innerHTML = data.twitter_username;
+			document.getElementById('twitter').innerHTML =
+				'@' + data.twitter_username;
 			if (data.twitter_username === null) {
 				document.getElementById('twitter').innerHTML = `Not Available`;
 				document.getElementById('twitter').style.color = '#acadb5';
@@ -328,7 +329,8 @@ fetch('https://api.github.com/users/octocat')
 		).innerHTML = `<a href="${data.blog}">${data.blog}</a>`;
 
 		//twitter
-		document.getElementById('twitter').textContent = data.twitter_username;
+		document.getElementById('twitter').textContent =
+			'@' + data.twitter_username;
 		if (data.twitter_username === null) {
 			document.getElementById('twitter').textContent = `Not Available`;
 		}
