@@ -271,11 +271,11 @@ function getApiCall(e) {
 
 			document.getElementById(
 				'github-thumb'
-			).innerHTML = `<img style="width: 95%; height: 95%;" src="${data.avatar_url}"/>`;
+			).innerHTML = `<img style="width: 85%; height: 90%;" src="${data.avatar_url}"/>`;
 
 			document.getElementById(
 				'github-thumb-inner'
-			).innerHTML = `<img style=width: 100px; height: 90px; src="${data.avatar_url}"/>`;
+			).innerHTML = `<img style="width: 80px; height: 80px;" src="${data.avatar_url}"/>`;
 		});
 }
 
@@ -284,11 +284,11 @@ fetch('https://api.github.com/users/octocat')
 	.then((data) => {
 		document.getElementById(
 			'github-thumb'
-		).innerHTML = `<img src="${data.avatar_url}"/>`;
+		).innerHTML = `<img style="width: 85%; height: 90%;" src="${data.avatar_url}"/>`;
 
 		document.getElementById(
 			'github-thumb-inner'
-		).innerHTML = `<img style="width: 90px; height: 90px;" src="${data.avatar_url}"/>`;
+		).innerHTML = `<img style="width: 80px; height: 80px;" src="${data.avatar_url}"/>`;
 		//Name
 		document.getElementById('result-name').textContent = data.name;
 		var date = new Date(data.created_at);
